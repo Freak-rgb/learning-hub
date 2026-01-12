@@ -22,7 +22,7 @@
     <main>
         <h2>Connect with Student Leaders</h2>
         <p>Have a question about a course, or want to contribute your own study notes? Reach out to the student leadership team.</p>
-        <form action="#">
+        <form onsubmit="sendMessage(event)">
             <label for="name">Full Name:</label><br>
             <input type="text" id="name" name="name" required><br><br>
             
@@ -42,5 +42,13 @@
     <footer>
         <p>&copy; 2026 Sylvester Anneh Yaw Otoo | 1696582104</p>
     </footer>
+
+    <script>
+        function sendMessage(event) {
+            event.preventDefault();
+            alert("Thank you for your message. A student leader will contact you shortly.");
+            event.target.reset();
+        }
+    </script>
 </body>
 </html>
