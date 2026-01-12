@@ -276,10 +276,8 @@ tr:hover {
 
 /* Table Container */
 .table-container {
-    overflow-x: auto;
     width: 100%;
     display: block;
-    -webkit-overflow-scrolling: touch;
 }
 
 /* Admissions Page Enhancements */
