@@ -277,6 +277,9 @@ tr:hover {
 /* Table Container */
 .table-container {
     overflow-x: auto;
+    width: 100%;
+    display: block;
+    -webkit-overflow-scrolling: touch;
 }
 
 /* Admissions Page Enhancements */
@@ -309,5 +312,10 @@ main li {
 
     main ul, main ol {
         padding: 1rem 1rem 1rem 2rem;
+    }
+
+    /* Fix form elements overflow on mobile */
+    form input, form select, form button, form textarea {
+        max-width: 100%;
     }
 }
