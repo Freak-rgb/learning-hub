@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GCTU IT Learning Hub | Admissions</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -19,6 +20,47 @@
         </nav>
     </header>
     <main>
+    <h2>Join Our Peer Network</h2>
+    <p>We are looking for students ready to learn, share, and grow. Join the hub to find a mentor or become one yourself.</p>
+
+    <h3>Membership Criteria:</h3>
+    <ul>
+        <li>Current GCTU Student ID Card</li>
+        <li>Willingness to collaborate and share knowledge</li>
+        <li>Commitment to helping peers succeed</li>
+    </ul>
+
+    <h3>Registration Form</h3>
+
+    <form onsubmit="registerStudent(event)">
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" required>
+
+        <label for="studentId">Student ID:</label>
+        <input type="text" id="studentId" required>
+
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="tel" id="phoneNumber" required>
+
+        <label for="areaInterest">Area of Interest:</label>
+        <select id="areaInterest" required>
+            <option value="">Select an area</option>
+            <option>Web Development</option>
+            <option>Networking</option>
+            <option>Programming</option>
+            <option>Cybersecurity</option>
+        </select>
+
+        <label for="idPicture">Picture of your Student ID:</label>
+        <input type="file" id="idPicture" accept="image/*" required>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <p id="notification"></p>
+</main>
+
+<!--<main>
         <h2>Join the Hub</h2>
         <p>We are looking for passionate students who are eager to solve real-world problems using technology.</p>
         <h3>Enrollment Requirements:</h3>
@@ -33,7 +75,7 @@
             <li>Complete the online aptitude test.</li>
             <li>Submit your portfolio for review.</li>
         </ol>
-    </main>
+    </main>-->
     <footer>
         <p>&copy; 2026 Sylvester Anneh Yaw Otoo | 1696582104</p>
     </footer>

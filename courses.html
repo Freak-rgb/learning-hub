@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GCTU IT Learning Hub | Courses</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -19,34 +20,80 @@
         </nav>
     </header>
     <main>
-        <h2>Our IT Curriculum</h2>
-        <p>We offer a variety of fundamental modules designed for Level 100 to 400 students.</p>
-        <table>
+        <h2>Collaborative Learning Resources</h2>
+        <p>Explore modules enriched with notes, tips, and study guides prepared by senior students to help you navigate your academic journey.</p>
+        
+        <div class="filter-controls">
+            <label for="levelFilter">Filter by Level:</label>
+            <select id="levelFilter" onchange="filterCourses()">
+                <option value="all">All Levels</option>
+                <option value="100">Level 100</option>
+                <option value="200">Level 200</option>
+                <option value="300">Level 300</option>
+                <option value="400">Level 400</option>
+            </select>
+        </div>
+
+        <div class="table-container">
+        <table id="coursesTable">
             <tr>
                 <th>Module Code</th>
                 <th>Course Title</th>
+                <th>Level</th>
                 <th>Duration</th>
+                <th>Action</th>
             </tr>
-            <tr>
+            <tr data-level="300">
                 <td>BIT 305</td>
                 <td>Web Development I</td>
+                <td>Level 300</td>
                 <td>1 Semester</td>
+                <td><a href="admissions.html" class="btn-sm">Apply</a></td>
             </tr>
-            <tr>
+            <tr data-level="300">
                 <td>BIT 308</td>
                 <td>Database Management</td>
+                <td>Level 300</td>
                 <td>1 Semester</td>
+                <td><a href="admissions.html" class="btn-sm">Apply</a></td>
             </tr>
-            <tr>
+            <tr data-level="300">
                 <td>BIT 312</td>
                 <td>Cyber Security Basics</td>
+                <td>Level 300</td>
                 <td>1 Semester</td>
+                <td><a href="admissions.html" class="btn-sm">Apply</a></td>
             </tr>
         </table>
-        <p>Each course is designed to meet the current standards of the Ghana Communication and Technology University curriculum.</p>
+        </div>
+        <p>Master these courses with the help of peers who have walked this path before you. Join a study group today.</p>
     </main>
     <footer>
         <p>&copy; 2026 Sylvester Anneh Yaw Otoo | 1696582104</p>
     </footer>
+
+    <script>
+        function filterCourses() {
+            // Get the selected value
+            var filterValue = document.getElementById("levelFilter").value;
+            
+            // Get the table and rows
+            var table = document.getElementById("coursesTable");
+            var rows = table.getElementsByTagName("tr");
+
+            // Loop through all table rows (skipping the first header row)
+            for (var i = 1; i < rows.length; i++) {
+                var row = rows[i];
+                var level = row.getAttribute("data-level");
+
+                // Show or hide based on the filter
+                if (filterValue === "all" || level === filterValue) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            }
+        }
+    </script>
 </body>
 </html>
