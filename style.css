@@ -1,4 +1,15 @@
-/* Reset and Base Styles */
+/* GCTU IT Learning Hub Theme */
+:root {
+    --primary-color: #001f3f; /* Blue-Black */
+    --secondary-color: #003366;
+    --accent-color: #FF851B; /* Orange */
+    --text-color: #333333;
+    --light-bg: #f4f6f8;
+    --white: #ffffff;
+    --border-color: #ddd;
+    --shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -7,331 +18,196 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light-bg);
+    color: var(--text-color);
     line-height: 1.6;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    color: #333;
 }
 
-/* Header Styles */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header & Nav */
 header {
-    background-color: #2c3e50;
-    color: #fff;
-    text-align: center;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: var(--shadow);
 }
 
 header h1 {
-    padding: 1.5rem 1rem;
+    font-size: 1.5rem;
     margin: 0;
-}
-
-/* Navigation Bar */
-nav {
-    background-color: #34495e;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    justify-content: center;
+    gap: 1.5rem;
     margin: 0;
     padding: 0;
 }
 
-nav li {
-    margin: 0;
-}
-
 nav a {
-    display: block;
-    padding: 1rem 1.5rem;
-    text-decoration: none;
-    color: #ecf0f1;
-    transition: background-color 0.3s;
+    color: #b3cde0;
+    font-weight: 500;
+    transition: color 0.3s;
 }
 
-nav a:hover {
-    background-color: #2c3e50;
+nav a:hover, nav a.active {
+    color: var(--white);
+    border-bottom: 2px solid var(--accent-color);
 }
 
-/* Active Page Highlight */
-nav a.active {
-    background-color: #e67e22;
-    color: #fff;
-    font-weight: bold;
-}
-
-/* Main Content */
+/* Main Layout */
 main {
     flex: 1;
-    padding: 2rem;
+    padding: 2rem 0;
+}
+
+.container {
     max-width: 1200px;
     margin: 0 auto;
-    width: 100%;
+    padding: 0 1.5rem;
 }
 
-/* Hero Section Styles */
-.hero {
-    text-align: center;
-    padding: 5rem 1rem;
-    background-color: #f8f9fa;
+/* Grid Systems */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Components */
+.card {
+    background-color: var(--white);
+    padding: 2rem;
     border-radius: 8px;
-    margin-top: 1rem;
+    box-shadow: var(--shadow);
+    height: 100%;
 }
 
-.hero h2 {
-    font-size: 2.5rem;
-    color: #2c3e50;
+.hero-box {
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+}
+
+.hero-box h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
     margin-bottom: 1rem;
 }
 
-.hero p {
-    font-size: 1.1rem;
-    max-width: 700px;
-    margin: 0 auto 2rem;
-    color: #555;
+/* Typography */
+h2, h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
 }
 
-/* Call to Action Button */
-.btn {
+p {
+    margin-bottom: 1rem;
+}
+
+ul, ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+
+/* Buttons */
+.btn, button {
     display: inline-block;
-    background-color: #e67e22;
-    color: #fff;
-    padding: 0.8rem 2rem;
-    text-decoration: none;
+    background-color: var(--accent-color);
+    color: var(--white);
+    padding: 0.8rem 1.5rem;
     border-radius: 4px;
     font-weight: bold;
+    border: none;
+    cursor: pointer;
+    text-align: center;
     transition: background-color 0.3s;
 }
 
-.btn:hover {
-    background-color: #d35400;
+.btn:hover, button:hover {
+    background-color: #e67e22;
+}
+
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 31, 63, 0.1);
 }
 
 /* Footer */
 footer {
-    background-color: #2c3e50;
-    color: #bdc3c7;
+    background-color: var(--primary-color);
+    color: #b3cde0;
     text-align: center;
-    padding: 1rem;
+    padding: 1.5rem;
     margin-top: auto;
 }
 
-/* Mobile Responsive Layout */
+/* Responsive */
 @media (max-width: 768px) {
-    nav ul {
+    header {
         flex-direction: column;
-        width: 100%;
-    }
-
-    nav li {
-        width: 100%;
-    }
-
-    nav a {
         text-align: center;
-        border-bottom: 1px solid #2c3e50;
     }
     
-    main {
-        padding: 1rem;
-    }
-}
-
-/* Contact Page Styles */
-form {
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
-
-form label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    color: #2c3e50;
-}
-
-form input[type="text"],
-form input[type="email"],
-form input[type="tel"],
-form textarea,
-form select,
-form input[type="file"] {
-    width: 100%;
-    padding: 0.8rem;
-    margin-bottom: 1.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-family: inherit;
-}
-
-form input[type="submit"],
-form button {
-    display: block;
-    width: 100%;
-    padding: 1rem;
-    background-color: #e67e22;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-form input[type="submit"]:hover,
-form button:hover {
-    background-color: #d35400;
-}
-
-/* Hide br tags in form to control spacing with CSS */
-form br {
-    display: none;
-}
-
-address {
-    text-align: center;
-    font-style: normal;
-    margin-top: 2rem;
-    padding: 1.5rem;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    color: #555;
-}
-
-/* About Page Enhancements */
-main section {
-    background-color: #fff;
-    padding: 2rem;
-    margin: 1.5rem 0;
-    border-left: 5px solid #e67e22;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    border-radius: 0 4px 4px 0;
-}
-
-/* Courses Page Table Styles */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 2rem 0;
-    background-color: #fff;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-th, td {
-    padding: 1rem;
-    text-align: left;
-    border-bottom: 1px solid #eee;
-}
-
-th {
-    background-color: #34495e;
-    color: #fff;
-    font-weight: 600;
-}
-
-tr:hover {
-    background-color: #f8f9fa;
-}
-
-/* Video Styling */
-video {
-    width: 100%;
-    margin-top: 1rem;
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    display: block;
-}
-
-/* Filter Controls */
-.filter-controls {
-    margin-bottom: 1rem;
-}
-
-.filter-controls select {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-}
-
-/* Small Table Button */
-.btn-sm {
-    display: inline-block;
-    padding: 0.4rem 0.8rem;
-    background-color: #e67e22;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    transition: background-color 0.3s;
-}
-
-.btn-sm:hover {
-    background-color: #d35400;
-}
-
-/* Table Container */
-.table-container {
-    width: 100%;
-    display: block;
-}
-
-/* Admissions Page */
-main h3 {
-    color: #2c3e50;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #e67e22;
-    display: inline-block;
-}
-
-main ul, main ol {
-    background-color: #fff;
-    padding: 1.5rem 1.5rem 1.5rem 3rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    margin-bottom: 2rem;
-}
-
-main li {
-    margin-bottom: 0.5rem;
-}
-
-/* Mobile Responsive Adjustments for Inner Pages */
-@media (max-width: 768px) {
-    form, main section, address {
-        padding: 1rem;
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 1rem;
     }
 
-    main ul, main ol {
-        padding: 1rem 1rem 1rem 2rem;
+    .grid-2, .grid-3 {
+        grid-template-columns: 1fr;
     }
-
-    /* Fix form elements overflow on mobile */
-    form input, form select, form button, form textarea {
-        max-width: 100%;
-    }
-
-    video{
-        max-width: 100%;
-        margin-top: 0.5rem;
-    }
-
-    table{
-        max-width: 100%;
+    
+    .hero-box {
+        padding: 2rem 1rem;
     }
 }
